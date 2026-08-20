@@ -10,19 +10,16 @@ arch:
 startup: application
 boot: auto
 
-ports:
-  5000/tcp: 4827
+image: "tanner23456/playlistdl"
 
-ports_description:
-  5000/tcp: "PlaylistDL Web Interface"
-
-webui: "http://[HOST]:[PORT:5000]"
+ingress: true
+ingress_port: 5000
+panel_icon: "mdi:music-box-multiple"
+panel_title: "PlaylistDL"
 
 map:
   - type: share
     read_only: false
-
-image: "tanner23456/playlistdl"
 
 init: false
 
@@ -42,6 +39,6 @@ schema:
   cleanup_interval: int
   download_options: str
   spotdl_audio_providers: str
-  spotdl_extra_args: str
+  spotdl_extra_args: ""
 
 stage: stable
