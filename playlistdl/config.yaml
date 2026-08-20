@@ -22,7 +22,7 @@ map:
   - type: share
     read_only: false
 
-image: "tanner23456/playlistdl"
+image: "tanner23456/playlistdl:v2"
 
 init: false
 
