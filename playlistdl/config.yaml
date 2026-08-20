@@ -1,0 +1,45 @@
+name: "PlaylistDL"
+version: "2.0.0"
+slug: "playlistdl"
+description: "Web-based Spotify and YouTube playlist downloader using PlaylistDL"
+url: "https://github.com/TannerNelson16/playlistdl"
+
+arch:
+  - amd64
+
+startup: application
+boot: auto
+
+ports:
+  5000/tcp: 4827
+
+ports_description:
+  5000/tcp: "PlaylistDL Web Interface"
+
+webui: "http://[HOST]:[PORT:5000]/"
+
+map:
+  - type: share
+    read_only: false
+
+image: "tanner23456/playlistdl"
+
+init: false
+
+options:
+  admin_username: "admin"
+  admin_password: null
+  audio_download_path: "/share/playlistdl"
+  cleanup_interval: 300
+  spotdl_audio_providers: "youtube"
+  spotdl_extra_args: ""
+
+schema:
+  admin_username: str
+  admin_password: password
+  audio_download_path: str
+  cleanup_interval: int
+  spotdl_audio_providers: str
+  spotdl_extra_args: str
+
+stage: stable
